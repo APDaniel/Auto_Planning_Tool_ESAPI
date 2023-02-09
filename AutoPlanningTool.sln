@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPlanningTool", "AutoPlanningTool.csproj", "{4B4CBDFC-5734-4DCB-B3E4-64AAF260E6E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B4CBDFC-5734-4DCB-B3E4-64AAF260E6E7}.Debug|x64.ActiveCfg = Debug|x64
+		{4B4CBDFC-5734-4DCB-B3E4-64AAF260E6E7}.Debug|x64.Build.0 = Debug|x64
+		{4B4CBDFC-5734-4DCB-B3E4-64AAF260E6E7}.Release|x64.ActiveCfg = Release|x64
+		{4B4CBDFC-5734-4DCB-B3E4-64AAF260E6E7}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC350ADC-0B63-48A1-B703-D713A0C6196F}
+	EndGlobalSection
+EndGlobal

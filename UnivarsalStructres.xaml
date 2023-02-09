@@ -1,0 +1,567 @@
+﻿<UserControl x:Class="AutoPlanningTool.UnivarsalStructres"
+             x:Name="OPT_STRWindowName"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AutoPlanningTool"
+             mc:Ignorable="d" 
+             d:DesignHeight="638" d:DesignWidth="800">
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="638" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="800">
+            <Rectangle.Style>
+                <Style TargetType="{x:Type Rectangle}">
+                    <Setter Property="Fill" >
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF6E6E6E" Offset="1"/>
+                                <GradientStop Color="#FF646464" Offset="0"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Rectangle.Style>
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF6E6E6E" Offset="1"/>
+                    <GradientStop Color="#FF646464" Offset="0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+
+        </Rectangle>
+        <TextBox HorizontalAlignment="Left" Background="Transparent" Height="30" Margin="478,48,0,0" TextWrapping="Wrap" Text="Structure Set ID:" VerticalAlignment="Top" Width="125" FontSize="16" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri">
+
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <ComboBox x:Name="StructureSetID"  Text="Default" HorizontalAlignment="Left" Margin="603,48,0,0" VerticalAlignment="Top" Width="175" Height="30" SelectionChanged="StructureSetID_Changed" HorizontalContentAlignment="Center" SelectedIndex="0" Tag="Default" VerticalContentAlignment="Center" FontSize="16">
+
+            <ComboBox.Style>
+                <Style TargetType="{x:Type ComboBox}">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0,0" StartPoint="1,1">
+                                <GradientStop Color="#CCFA6432" Offset="0.04"/>
+                                <GradientStop Color="#CC913291" Offset="0.5"/>
+                                <GradientStop Color="#CCFA6432" Offset="0.96"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0,0" StartPoint="1,1">
+                                <GradientStop Color="#CCFA6432" Offset="0.04"/>
+                                <GradientStop Color="#CC913291" Offset="0.5"/>
+                                <GradientStop Color="#CCFA6432" Offset="0.96"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ComboBox.Style>
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,0" StartPoint="1,1">
+                    <GradientStop Color="#CCFA6432" Offset="0.04"/>
+                    <GradientStop Color="#CC913291" Offset="0.5"/>
+                    <GradientStop Color="#CCFA6432" Offset="0.96"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBox.BorderBrush>
+                <LinearGradientBrush EndPoint="0,0" StartPoint="1,1">
+                    <GradientStop Color="#CCFA6432" Offset="0.04"/>
+                    <GradientStop Color="#CC913291" Offset="0.5"/>
+                    <GradientStop Color="#CCFA6432" Offset="0.96"/>
+                </LinearGradientBrush>
+            </ComboBox.BorderBrush>
+        </ComboBox>
+        <TextBox Text="Target structure:" HorizontalAlignment="Left" Background="Transparent" Height="30" Margin="478,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="16" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri">
+
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <ComboBox x:Name="TargetID"  Text="Default" HorizontalAlignment="Left" Margin="603,88,0,0" VerticalAlignment="Top" Width="175" Height="30" SelectionChanged="TargetID_Changed" HorizontalContentAlignment="Center" SelectedIndex="0" Tag="Default" VerticalContentAlignment="Center" FontSize="16">
+            <ComboBox.Style>
+                <Style TargetType="{x:Type ComboBox}">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0,0" StartPoint="1,1">
+                                <GradientStop Color="#CCFA6432" Offset="0.04"/>
+                                <GradientStop Color="#CC913291" Offset="0.5"/>
+                                <GradientStop Color="#CCFA6432" Offset="0.96"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0,0" StartPoint="1,1">
+                                <GradientStop Color="#CCFA6432" Offset="0.04"/>
+                                <GradientStop Color="#CC913291" Offset="0.5"/>
+                                <GradientStop Color="#CCFA6432" Offset="0.96"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ComboBox.Style>
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,0" StartPoint="1,1">
+                    <GradientStop Color="#CCFA6432" Offset="0.04"/>
+                    <GradientStop Color="#CC913291" Offset="0.5"/>
+                    <GradientStop Color="#CCFA6432" Offset="0.96"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBox.BorderBrush>
+                <LinearGradientBrush EndPoint="0,0" StartPoint="1,1">
+                    <GradientStop Color="#CCFA6432" Offset="0.04"/>
+                    <GradientStop Color="#CC913291" Offset="0.5"/>
+                    <GradientStop Color="#CCFA6432" Offset="0.96"/>
+                </LinearGradientBrush>
+            </ComboBox.BorderBrush>
+        </ComboBox>
+        <Button x:Name="CrtStrsBYtmpltButtonName" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" Content="Create structures by selected template" HorizontalAlignment="Left" Margin="478,430,0,0" VerticalAlignment="Top" Width="322" Height="104" Click="CrtStrBYtmplt_Click" FontSize="16" HorizontalContentAlignment="Center" Background="Transparent" VerticalContentAlignment="Center">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border" Value="#33DDDDDD" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Background="Transparent" Content="Cancel" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Margin="478,534,0,0" VerticalAlignment="Top" Width="322" Height="104" Click="Cancel" FontSize="16">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border" Value="#33DDDDDD" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        
+        
+        <ListView x:Name="StructurePTV" FontFamily="Calibri" FontWeight="Bold" FontSize="12" IsManipulationEnabled="True" HorizontalAlignment="Left" Height="100" Margin="20,48,0,0" VerticalAlignment="Top" Width="390" ScrollViewer.HorizontalScrollBarVisibility="Auto" TextOptions.TextHintingMode="Animated" IsTabStop="True" IsTextSearchCaseSensitive="True" Foreground="#FF5A1496" SelectedIndex="0" SelectionMode="Single" UseLayoutRounding="True" AutomationProperties.IsOffscreenBehavior="Onscreen" Background="#CCDDDDDD" BorderBrush="#CCDDDDDD" Visibility="Visible" ForceCursor="True" SelectionChanged="StructurePTV_SelectionChanged">
+            <ListView.Style>
+                <Style/>
+            </ListView.Style>
+            <ListView.Resources>
+                <Style x:Key="GridViewColumnHeaderStyle1" TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
+                                <Border BorderThickness="0,0,1,1" BorderBrush="#CC767676" Background="Transparent">
+                                    <TextBlock x:Name="ContentHeader" Text="{TemplateBinding Content}" Padding="5,5,5,0" Width="{TemplateBinding Width}" TextAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="OverridesDefaultStyle" Value="True" />
+                    <Setter Property="Foreground" Value="#FF5A5A5A" />
+                    <Setter Property="FontFamily" Value="Calibri" />
+                    <Setter Property="FontSize" Value="12" />
+                </Style>
+            </ListView.Resources>
+            <ListView.View>
+                <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}">
+                    <GridViewColumn Header="  " DisplayMemberBinding="{Binding Id_PTV}" Width="20"/>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_PTV}" Width="100"/>
+                    <GridViewColumn Header="Flash" DisplayMemberBinding="{Binding Flash_PTV}" Width="50"/>
+                    <GridViewColumn Header="     " DisplayMemberBinding="{Binding from_PTV}" Width="40"/>
+                    <GridViewColumn Header="Target" DisplayMemberBinding="{Binding Target_PTV}" Width="75"/>
+                    <GridViewColumn Header="new Id" DisplayMemberBinding="{Binding NEW_PTV}" Width="110"/>
+                </GridView>
+                
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="StructurePRV" IsManipulationEnabled="True" HorizontalAlignment="Left" Height="100" Margin="20,185,0,0" VerticalAlignment="Top" Width="390" ScrollViewer.HorizontalScrollBarVisibility="Auto" TextOptions.TextHintingMode="Animated" IsTabStop="True" IsTextSearchCaseSensitive="True" Foreground="#FF5A1496" SelectedIndex="0" SelectionMode="Single" UseLayoutRounding="True" AutomationProperties.IsOffscreenBehavior="Onscreen" Background="#CCDDDDDD" BorderBrush="#CCDDDDDD" Visibility="Visible" ForceCursor="True" SelectionChanged="StructurePRV_SelectionChanged">
+            <ListView.Style>
+                <Style/>
+            </ListView.Style>
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="Visibility" Value="Visible" />
+                    <Setter Property="Height" Value="0" />
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="20"/>
+                    <Setter Property="Visibility" Value="Visible"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <ListView x:Name="StructureRing" IsManipulationEnabled="True" HorizontalAlignment="Left" Height="100" Margin="20,330,0,0" VerticalAlignment="Top" Width="390" ScrollViewer.HorizontalScrollBarVisibility="Auto" TextOptions.TextHintingMode="Animated" IsTabStop="True" IsTextSearchCaseSensitive="True" Foreground="#FF5A1496" SelectedIndex="0" SelectionMode="Single" UseLayoutRounding="True" AutomationProperties.IsOffscreenBehavior="Onscreen" Background="#CCDDDDDD" BorderBrush="#CCDDDDDD" Visibility="Visible" ForceCursor="True" SelectionChanged="StructureRing_SelectionChanged">
+            <ListView.Style>
+                <Style/>
+            </ListView.Style>
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="Visibility" Value="Visible" />
+                    <Setter Property="Height" Value="0" />
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="20"/>
+                    <Setter Property="Visibility" Value="Visible"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <ListView x:Name="StructureSubstract" IsManipulationEnabled="True" HorizontalAlignment="Left" Height="100" Margin="20,480,0,0" VerticalAlignment="Top" Width="390" ScrollViewer.HorizontalScrollBarVisibility="Auto" TextOptions.TextHintingMode="Animated" IsTabStop="True" IsTextSearchCaseSensitive="True" Foreground="#FF5A1496" SelectedIndex="0" SelectionMode="Single" UseLayoutRounding="True" AutomationProperties.IsOffscreenBehavior="Onscreen" Background="#CCDDDDDD" BorderBrush="#CCDDDDDD" Visibility="Visible" ForceCursor="True" SelectionChanged="StructureSubstract_SelectionChanged">
+            <ListView.Style>
+                <Style/>
+            </ListView.Style>
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="Visibility" Value="Visible" />
+                    <Setter Property="Height" Value="0" />
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="20"/>
+                    <Setter Property="Visibility" Value="Visible"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <ListView x:Name="StructurePTVALL" IsManipulationEnabled="True" HorizontalAlignment="Left" Height="100" Margin="478,185,0,0" VerticalAlignment="Top" Width="300" ScrollViewer.HorizontalScrollBarVisibility="Auto" TextOptions.TextHintingMode="Animated" IsTabStop="True" IsTextSearchCaseSensitive="True" Foreground="#FF5A1496" SelectedIndex="0" SelectionMode="Single" UseLayoutRounding="True" AutomationProperties.IsOffscreenBehavior="Onscreen" Background="#CCDDDDDD" BorderBrush="#CCDDDDDD" Visibility="Visible" ForceCursor="True" SelectionChanged="StructurePTVALL_SelectionChanged">
+            <ListView.Style>
+                <Style/>
+            </ListView.Style>
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="Visibility" Value="Visible" />
+                    <Setter Property="Height" Value="0" />
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="20"/>
+                    <Setter Property="Visibility" Value="Visible"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <ListView x:Name="StructurePTVOPT" IsManipulationEnabled="True" HorizontalAlignment="Left" Height="100" Margin="478,330,0,0" VerticalAlignment="Top" Width="300" ScrollViewer.HorizontalScrollBarVisibility="Auto" TextOptions.TextHintingMode="Animated" IsTabStop="True" IsTextSearchCaseSensitive="True" Foreground="#FF5A1496" SelectedIndex="0" SelectionMode="Single" UseLayoutRounding="True" AutomationProperties.IsOffscreenBehavior="Onscreen" Background="#CCDDDDDD" BorderBrush="#CCDDDDDD" Visibility="Visible" ForceCursor="True" SelectionChanged="StructurePTVALL_SelectionChanged">
+            <ListView.Style>
+                <Style/>
+            </ListView.Style>
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="Visibility" Value="Visible" />
+                    <Setter Property="Height" Value="0" />
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="20"/>
+                    <Setter Property="Visibility" Value="Visible"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+
+        <GroupBox Header="Create 'structures-PTV'" HorizontalAlignment="Left" Height="33" Margin="268,10,0,0" VerticalAlignment="Top" Width="142" BorderBrush="#FF5D5D5D" FontFamily="Calibri" FontSize="14" Foreground="#FFDDDDDD" BorderThickness="0">
+            <StackPanel Margin="0,0,0,-6">
+                <RadioButton x:Name="OFFStructurePTVRB" Content="OFF" Checked="OFFStructurePTV_Checked" Background="#FF7B7B7B" BorderBrush="#FF5D5D5D" BorderThickness="2,2,2,2"  Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Margin="75,0,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="-1.17,2.298" >
+                    <RadioButton.Style>
+                        <Style/>
+                    </RadioButton.Style>
+                </RadioButton>
+                <RadioButton x:Name="ONStructurePTVRB" Content="ON" Checked="ONStructurePTV_Checked" Background="#FF7B7B7B" BorderBrush="#FF5D5D5D" BorderThickness="2,2,2,2"  Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Margin="0,-19.5,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0,0" >
+                    <RadioButton.Style>
+                        <Style/>
+                    </RadioButton.Style>
+                </RadioButton>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Create 'structures PRV'" HorizontalAlignment="Left" Height="33" Margin="269,150,0,0" VerticalAlignment="Top" Width="142" BorderBrush="#FF5D5D5D" FontFamily="Calibri" FontSize="14" Foreground="#FFDDDDDD" BorderThickness="0">
+            <StackPanel Margin="0,0,0,-6">
+                <RadioButton x:Name="OFFStructurePRVRB" Content="OFF" Checked="OFFStructurePRV_Checked" Background="#FF7B7B7B" BorderBrush="#FF5D5D5D" BorderThickness="2,2,2,2"  Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Margin="75,0,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="-1.17,2.298" >
+                    <RadioButton.Style>
+                        <Style/>
+                    </RadioButton.Style>
+                </RadioButton>
+                <RadioButton x:Name="ONStructurePRVRB" Content="ON" Checked="ONStructurePRV_Checked" Background="#FF7B7B7B" BorderBrush="#FF5D5D5D" BorderThickness="2,2,2,2"  Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Margin="0,-19.5,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0,0" >
+                    <RadioButton.Style>
+                        <Style/>
+                    </RadioButton.Style>
+                </RadioButton>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Create structures 'ring'" HorizontalAlignment="Left" Height="33" Margin="269,292,0,0" VerticalAlignment="Top" Width="141" BorderBrush="#FF5D5D5D" FontFamily="Calibri" FontSize="14" Foreground="#FFDDDDDD" BorderThickness="0">
+            <StackPanel Margin="0,0,0,-6">
+                <RadioButton x:Name="OFFStructureRingRB" Content="OFF" Checked="OFFStructureRing_Checked" Background="#FF7B7B7B" BorderBrush="#FF5D5D5D" BorderThickness="2,2,2,2"  Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Margin="75,0,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="-1.17,2.298" >
+                    <RadioButton.Style>
+                        <Style/>
+                    </RadioButton.Style>
+                </RadioButton>
+                <RadioButton x:Name="ONStructureRingRB" Content="ON" Checked="ONStructureRing_Checked" Background="#FF7B7B7B" BorderBrush="#FF5D5D5D" BorderThickness="2,2,2,2"  Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Margin="0,-19.5,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0,0" >
+                    <RadioButton.Style>
+                        <Style/>
+                    </RadioButton.Style>
+                </RadioButton>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Substract structure one from another" HorizontalAlignment="Left" Height="33" Margin="179,442,0,0" VerticalAlignment="Top" Width="231" BorderBrush="#FF5D5D5D" FontFamily="Calibri" FontSize="14" Foreground="#FFDDDDDD" BorderThickness="0">
+            <StackPanel Margin="0,0,0,-6">
+                <RadioButton x:Name="OFFStructureSubstractRB" Content="OFF" Checked="OFFStructureSubstract_Checked" Background="#FF7B7B7B" BorderBrush="#FF5D5D5D" BorderThickness="2,2,2,2"  Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Margin="170,0,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="-1.17,2.298" >
+                    <RadioButton.Style>
+                        <Style/>
+                    </RadioButton.Style>
+                </RadioButton>
+                <RadioButton x:Name="ONStructureSubstractRB" Content="ON" Checked="ONStructureSubstract_Checked" Background="#FF7B7B7B" BorderBrush="#FF5D5D5D" BorderThickness="2,2,2,2"  Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Margin="91,-19.5,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0,0" >
+                    <RadioButton.Style>
+                        <Style/>
+                    </RadioButton.Style>
+                </RadioButton>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Create PTV ALL" HorizontalAlignment="Left" Height="33" Margin="638,147,0,0" VerticalAlignment="Top" Width="134" BorderBrush="#FF5D5D5D" FontFamily="Calibri" FontSize="14" Foreground="#FFDDDDDD" BorderThickness="0">
+            <StackPanel Margin="0,0,0,-6">
+                <RadioButton x:Name="OFFStructurePTVALLRB" Content="OFF" Checked="OFFStructurePTVALL_Checked" Background="#FF7B7B7B" BorderBrush="#FF5D5D5D" BorderThickness="2,2,2,2"  Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Margin="75,0,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="-1.17,2.298" >
+                    <RadioButton.Style>
+                        <Style/>
+                    </RadioButton.Style>
+                </RadioButton>
+                <RadioButton x:Name="ONStructurePTVALLRB" Content="ON" Checked="ONStructurePTVALL_Checked" Background="#FF7B7B7B" BorderBrush="#FF5D5D5D" BorderThickness="2,2,2,2"  Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Margin="0,-19.5,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0,0" >
+                    <RadioButton.Style>
+                        <Style/>
+                    </RadioButton.Style>
+                </RadioButton>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Create PTV OPT" HorizontalAlignment="Left" Height="33" Margin="638,290,0,0" VerticalAlignment="Top" Width="140" BorderBrush="#FF5D5D5D" FontFamily="Calibri" FontSize="14" Foreground="#FFDDDDDD" BorderThickness="0">
+            <StackPanel Margin="0,0,0,-6">
+                <RadioButton x:Name="OFFStructurePTVOPTRB" Content="OFF" Checked="OFFStructurePTVOPT_Checked" Background="#FF7B7B7B" BorderBrush="#FF5D5D5D" BorderThickness="2,2,2,2"  Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Margin="75,0,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="-1.17,2.298" >
+                    <RadioButton.Style>
+                        <Style/>
+                    </RadioButton.Style>
+                </RadioButton>
+                <RadioButton x:Name="ONStructurePTVOPTRB" Content="ON" Checked="ONStructurePTVOPT_Checked" Background="#FF7B7B7B" BorderBrush="#FF5D5D5D" BorderThickness="2,2,2,2"  Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Margin="0,-19.5,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0,0" >
+                    <RadioButton.Style>
+                        <Style/>
+                    </RadioButton.Style>
+                </RadioButton>
+            </StackPanel>
+        </GroupBox>
+        <Button x:Name="AddStrPTVButtonName" Content="Add" HorizontalAlignment="Left" FontWeight="Bold" Margin="20,14,0,0" VerticalAlignment="Top" Width="46" Height="34" Foreground="#FFDDDDDD" ClipToBounds="True" FontFamily="Calibri" FontSize="16" Background="#FF969696" BorderThickness="5" BorderBrush="#FF767676" Click="AddStrPTVButton_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border" Value="#33DDDDDD" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <TextBox x:Name="MarginPTVTBName" HorizontalAlignment="Left" Height="17" Margin="66,14,0,0" TextWrapping="Wrap" Text="Flash" FontSize="12" FontFamily="Calibri" FontWeight="Bold" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="MarginPTVTBNameChanged" Foreground="#FFDDDDDD" Background="{x:Null}" BorderThickness="1,1,1,0" BorderBrush="#FF969696" IsReadOnly="True">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox x:Name="MarginPTVTBValue" HorizontalAlignment="Left" Height="18" Margin="66,30,0,0" TextWrapping="Wrap" Text="" FontSize="12" FontFamily="Calibri" FontWeight="Bold" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="MarginPRVTBValueChanged" Foreground="#FFDDDDDD" BorderThickness="1,0,1,1" BorderBrush="#FF969696" Background="#CCFFFFFF">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+
+        <Button x:Name="AddStrPRVButtonName" Content="Add" Click="AddStrPRVButton_Click" HorizontalAlignment="Left" FontWeight="Bold" Margin="20,152,0,0" VerticalAlignment="Top" Width="46" Height="33" Foreground="#FFDDDDDD" ClipToBounds="True" FontFamily="Calibri" FontSize="16" Background="#FF969696" BorderThickness="5" BorderBrush="#FF767676" >
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border" Value="#33DDDDDD" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <TextBox x:Name="MarginPRVTBName" HorizontalAlignment="Left" Height="15" Margin="66,152,0,0" TextWrapping="Wrap" Text="Margin" FontSize="12" FontFamily="Calibri" FontWeight="Bold" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="MarginTBNameChanged" Foreground="#FFDDDDDD" Background="{x:Null}" BorderThickness="1,1,1,0" BorderBrush="#FF969696" IsReadOnly="True">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox x:Name="MarginPRVTBValue" HorizontalAlignment="Left" Height="18" Margin="66,167,0,0" TextWrapping="Wrap" Text="" FontSize="12" FontFamily="Calibri" FontWeight="Bold" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="MarginPRVTBValueChanged" Foreground="#FFDDDDDD" BorderThickness="1,0,1,1" BorderBrush="#FF969696" Background="#CCFFFFFF">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+
+        <Button x:Name="AddStrRingButtonName" Content="Add" Click="AddStrRingButton_Click" HorizontalAlignment="Left" FontWeight="Bold" Margin="20,295,0,0" VerticalAlignment="Top" Width="46" Height="35" Foreground="#FFDDDDDD" ClipToBounds="True" FontFamily="Calibri" FontSize="16" Background="#FF969696" BorderThickness="5" BorderBrush="#FF767676" >
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border" Value="#33DDDDDD" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <TextBox x:Name="MarginRingInnerTBName" HorizontalAlignment="Left" Height="17" Margin="66,295,0,0" TextWrapping="Wrap" Text="Flash" FontSize="12" FontFamily="Calibri" FontWeight="Bold" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="MarginInnerRingTBNameChanged" Foreground="#FFDDDDDD" Background="{x:Null}" BorderThickness="1,1,1,0" BorderBrush="#FF969696" IsReadOnly="True">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox x:Name="MarginRingInnerTBValue" HorizontalAlignment="Left" Height="18" Margin="66,312,0,0" TextWrapping="Wrap" Text="" FontSize="12" FontFamily="Calibri" FontWeight="Bold" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="MarginRingTBValueChanged" Foreground="#FFDDDDDD" BorderThickness="1,0,1,1" BorderBrush="#FF969696" Background="#CCFFFFFF">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+
+        <TextBox x:Name="MarginRingRadiusTBName" HorizontalAlignment="Left" Height="17" Margin="156,295,0,0" TextWrapping="Wrap" Text="Radius" FontSize="12" FontFamily="Calibri" FontWeight="Bold" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="MarginRadiusRingTBNameChanged" Foreground="#FFDDDDDD" Background="{x:Null}" BorderThickness="1,1,1,0" BorderBrush="#FF969696" IsReadOnly="True">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox x:Name="MarginRingRadiusTBValue" HorizontalAlignment="Left" Height="18" Margin="156,312,0,0" TextWrapping="Wrap" Text="" FontSize="12" FontFamily="Calibri" FontWeight="Bold" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="MarginRadiusTBValueChanged" Foreground="#FFDDDDDD" BorderThickness="1,0,1,1" BorderBrush="#FF969696" Background="#CCFFFFFF">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+
+
+        <Button x:Name="AddStrSubstractButtonName" Content="Add" Click="AddSubstractButton_Click" HorizontalAlignment="Left" FontWeight="Bold" Margin="20,445,0,0" VerticalAlignment="Top" Width="46" Height="35" Foreground="#FFDDDDDD" ClipToBounds="True" FontFamily="Calibri" FontSize="16" Background="#FF969696" BorderThickness="5" BorderBrush="#FF767676" >
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border" Value="#33DDDDDD" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <TextBox x:Name="MarginSubstractTBName" HorizontalAlignment="Left" Height="17" Margin="66,445,0,0" TextWrapping="Wrap" Text="Margin" FontSize="12" FontFamily="Calibri" FontWeight="Bold" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="MarginSubstractTBNameChanged" Foreground="#FFDDDDDD" Background="{x:Null}" BorderThickness="1,1,1,0" BorderBrush="#FF969696" IsReadOnly="True">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox x:Name="MarginSubstractTBValue" HorizontalAlignment="Left" Height="18" Margin="66,462,0,0" TextWrapping="Wrap" Text="" FontSize="12" FontFamily="Calibri" FontWeight="Bold" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="MarginSubstractTBValueChanged" Foreground="#FFDDDDDD" BorderThickness="1,0,1,1" BorderBrush="#FF969696" Background="#CCFFFFFF">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+
+        <Button x:Name="AddStrPTVALLButtonName" Content="Add" Click="AddPTVALLButton_Click" HorizontalAlignment="Left" FontWeight="Bold" Margin="478,150,0,0" VerticalAlignment="Top" Width="46" Height="35" Foreground="#FFDDDDDD" ClipToBounds="True" FontFamily="Calibri" FontSize="16" Background="#FF969696" BorderThickness="5" BorderBrush="#FF767676" >
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border" Value="#33DDDDDD" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+
+        <Button x:Name="AddStrPTVOPTButtonName" Content="Add" Click="AddPTVOPTButton_Click" HorizontalAlignment="Left" FontWeight="Bold" Margin="478,295,0,0" VerticalAlignment="Top" Width="46" Height="35" Foreground="#FFDDDDDD" ClipToBounds="True" FontFamily="Calibri" FontSize="16" Background="#FF969696" BorderThickness="5" BorderBrush="#FF767676" >
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border" Value="#33DDDDDD" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <TextBox x:Name="MarginPTVOPTTBName" HorizontalAlignment="Left" Height="17" Margin="524,295,0,0" TextWrapping="Wrap" Text="Margin" FontSize="12" FontFamily="Calibri" FontWeight="Bold" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="MarginPTVOPTTBNameChanged" Foreground="#FFDDDDDD" Background="{x:Null}" BorderThickness="1,1,1,0" BorderBrush="#FF969696" IsReadOnly="True">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox x:Name="MarginPTVOPTTBValue" HorizontalAlignment="Left" Height="18" Margin="524,312,0,0" TextWrapping="Wrap" Text="" FontSize="12" FontFamily="Calibri" FontWeight="Bold" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="MarginPTVOPTTBValueChanged" Foreground="#FFDDDDDD" BorderThickness="1,0,1,1" BorderBrush="#FF969696" Background="#CCFFFFFF">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="AutoPlanningTool.GreetingsWindow"
+             x:Name="GreetingsWindowName"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AutoPlanningTool"
+             mc:Ignorable="d" 
+             d:DesignHeight="638" d:DesignWidth="800">
+    <UserControl.Effect>
+        <DropShadowEffect BlurRadius="2" ShadowDepth="1" RenderingBias="Quality" Color="#FF3C3C3C"/>
+    </UserControl.Effect>
+    <Grid>
+        <Border Name="Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="638" VerticalAlignment="Center" Width="800">
+            <Rectangle Name="Rectangle" Fill="#FFDDDDDE" Stroke="Black" Width="800" Height="638" Margin="0,0,0,0"/>
+        </Border>
+        <Button Name="CrtOPTstrButton" Content="Create optimization structures" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="400" Height="500" Click="OPT_STR" FontSize="22" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" BorderThickness="1" BorderBrush="#FF707070">
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border" >
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0,0" StartPoint="0,1">
+                                                    <GradientStop Color="#CC787878" Offset="0"/>
+                                                    <GradientStop Color="#CC3C3C3C" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF6E6E6E" Offset="1"/>
+                    <GradientStop Color="#FF646464" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Name="CrtClcltPlanButton" Content="Create and calculate external beam plan" HorizontalAlignment="Left" Margin="400,0,0,0" VerticalAlignment="Top" Width="400" Height="500" Click="AutoPlan" Foreground="#FFDDDDDD" FontSize="22" FontFamily="Calibri" FontWeight="Bold">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border" >
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0,0" StartPoint="0,1">
+                                                    <GradientStop Color="#CC787878" Offset="0"/>
+                                                    <GradientStop Color="#CC3C3C3C" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF6E6E6E" Offset="1"/>
+                    <GradientStop Color="#FF646464" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Name="ExitButton" Content="EXIT" Foreground="#FFDDDDDD" HorizontalAlignment="Left" Margin="0,500,0,0" VerticalAlignment="Top" Width="800" Height="138" Click="EXIT" FontSize="22" FontFamily="Calibri" FontWeight="Bold">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border" >
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0,0" StartPoint="0,1">
+                                                    <GradientStop Color="#CC787878" Offset="0"/>
+                                                    <GradientStop Color="#CC3C3C3C" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF6E6E6E" Offset="1"/>
+                    <GradientStop Color="#FF646464" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+</UserControl>

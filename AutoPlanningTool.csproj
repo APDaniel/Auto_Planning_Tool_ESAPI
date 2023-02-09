@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <ProjectGuid>{4B4CBDFC-5734-4DCB-B3E4-64AAF260E6E7}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoPlanningTool</RootNamespace>
+    <AssemblyName>AutoPlanningTool.esapi</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\plugins</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\plugins</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="VMS.TPS.Common.Model.API">
+      <HintPath>..\..\..\VMS.TPS.Common.Model.API.dll</HintPath>
+    </Reference>
+    <Reference Include="VMS.TPS.Common.Model.Types">
+      <HintPath>..\..\..\VMS.TPS.Common.Model.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoPlan.xaml.cs">
+      <DependentUpon>AutoPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AutoPlanningTool.cs" />
+    <Compile Include="BrainAutoPlan.xaml.cs">
+      <DependentUpon>BrainAutoPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EsophagusAutoPlan.xaml.cs">
+      <DependentUpon>EsophagusAutoPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GreetingsWindow.xaml.cs">
+      <DependentUpon>GreetingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HeadAndNeckAutoplan.xaml.cs">
+      <DependentUpon>HeadAndNeckAutoplan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LungAutoPlan.xaml.cs">
+      <DependentUpon>LungAutoPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LymphomaAutoPlan.xaml.cs">
+      <DependentUpon>LymphomaAutoPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OPT_STR.xaml.cs">
+      <DependentUpon>OPT_STR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PelvisAutoPlan.xaml.cs">
+      <DependentUpon>PelvisAutoPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SBRTabdominalAutoPlan.xaml.cs">
+      <DependentUpon>SBRTabdominalAutoPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SBRTthoraxAutoPlan.xaml.cs">
+      <DependentUpon>SBRTthoraxAutoPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SRSbrainAutoPlan.xaml.cs">
+      <DependentUpon>SRSbrainAutoPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UnivarsalStructres.xaml.cs">
+      <DependentUpon>UnivarsalStructres.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AutoPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BrainAutoPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EsophagusAutoPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GreetingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HeadAndNeckAutoplan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LungAutoPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LymphomaAutoPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OPT_STR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PelvisAutoPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SBRTabdominalAutoPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SBRTthoraxAutoPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SRSbrainAutoPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UnivarsalStructres.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

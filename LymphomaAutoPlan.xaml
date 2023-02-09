@@ -1,0 +1,238 @@
+﻿<UserControl x:Class="AutoPlanningTool.LymphomaAutoPlan"
+             x:Name="LymphomaAutoPlanWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AutoPlanningTool"
+             mc:Ignorable="d" 
+             d:DesignHeight="638" d:DesignWidth="800">
+    <Grid Focusable="True">
+        <Rectangle Focusable="True" HorizontalAlignment="Left" Height="638" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="800">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF6E6E6E" Offset="1"/>
+                    <GradientStop Color="#FF646464" Offset="0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+            <Rectangle.Style>
+                <Style TargetType="{x:Type Rectangle}">
+                    <Setter Property="Fill" >
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF6E6E6E" Offset="1"/>
+                                <GradientStop Color="#FF646464" Offset="0"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Rectangle.Style>
+        </Rectangle>
+
+        
+        <Border BorderBrush="#FF707070" BorderThickness="1" HorizontalAlignment="Left" Height="598" Margin="20,20,0,0" VerticalAlignment="Top" Width="760"/>
+        <TextBox Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Height="23" Margin="30,40,0,0" TextWrapping="Wrap" Text="Please, define the number of fractions and dose per fraction" VerticalAlignment="Top" Width="434" Background="Transparent" BorderBrush="#00ABADB3" FontSize="16" IsReadOnly="True">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <Button x:Name ="Button_CrtAndCalPlan" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" Content="Create and calculate VMAT plan" HorizontalAlignment="Left" Margin="20,418,0,0" VerticalAlignment="Top" Width="380" Height="100" Click="CrtAndCalPlan" FontSize="16" BorderThickness="1,1,1,1">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border" Value="#33DDDDDD" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="1,1.7" StartPoint="0,0">
+                    <GradientStop Color="#00913291" Offset="0"/>
+                    <GradientStop Color="#00FA6432" Offset="0.5"/>
+                    <GradientStop Color="#00913290" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <CheckBox Name="RapidPlan" Content="RapidPlan" FontFamily="Calibri" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="31,239,0,0" VerticalAlignment="Top" Foreground="#FFDDDDDD" Background="#FF7B7B7B" BorderBrush="#FF5D5D5D" BorderThickness="2,2,2,2" Checked="RapidPlanCheckBox_Checked" Unchecked="RapidPlanCheckBox_Unchecked">
+            <CheckBox.Style>
+                <Style/>
+            </CheckBox.Style>
+        </CheckBox>
+        <ComboBox x:Name="RapidPlanModelId" FontSize="11" HorizontalAlignment="Left" Margin="221,220,0,0" VerticalAlignment="Top" Width="100" Height="30" SelectionChanged="RapidPlanModelIdChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectedIndex="0">
+            <ComboBoxItem Name="Thorax_Lphm_CBI" Content="Thorax" HorizontalAlignment="Center" Width="100" BorderBrush="#FF767676"/>
+            <ComboBoxItem Name="Plvs_Abdmnl_Lphm_CBI" Content="Plvs/Abdm" HorizontalAlignment="Center" Width="100" BorderBrush="#FF767676"/>
+            <ComboBoxItem Name="HN_Lphm_CBI" Content="Head/Neck" HorizontalAlignment="Center" Width="100" BorderBrush="#FF767676"/>
+        </ComboBox>
+        <TextBox Name="RapidPlanTextBox" Background="Transparent" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Height="40" Margin="222,175,0,0" TextWrapping="Wrap" Text="RapidPlan Model:" VerticalAlignment="Top" Width="99" FontSize="16" IsReadOnly="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" BorderBrush="Transparent">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <Button x:Name ="Button_CrtAndCalPlanIMRT" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" Content="Create and calculate IMRT plan " HorizontalAlignment="Left" Margin="20,518,0,0" VerticalAlignment="Top" Width="380" Height="100" Click="CrtAndCalPlanIMRT" FontSize="16">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border" Value="#33DDDDDD" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="1,1.7" StartPoint="0,0">
+                    <GradientStop Color="#00913291" Offset="0"/>
+                    <GradientStop Color="#00FA6432" Offset="0.5"/>
+                    <GradientStop Color="#00913290" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Cancel" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Margin="400,418,0,0" VerticalAlignment="Top" Width="380" Height="200" Click="Cancel" FontSize="16">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="Border" Value="#33DDDDDD" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="1,1.7" StartPoint="0,0">
+                    <GradientStop Color="#00913291" Offset="0"/>
+                    <GradientStop Color="#00FA6432" Offset="0.5"/>
+                    <GradientStop Color="#00913290" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBox  x:Name="dosePerFx"  TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="221,70,0,0" TextChanged="DosePerFx_TextChanged" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="White" Background="#19FFFFFF" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox Background="#19FFFFFF" x:Name="numberOfFractions" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="221,105,0,0" TextChanged="DosePerFx_TextChanged" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="White">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox Background="Transparent" HorizontalAlignment="Left" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" Height="30" Margin="31,70,0,0" TextWrapping="Wrap" Text="Dose per fraction:" VerticalAlignment="Top" Width="159" FontSize="16" IsReadOnly="True" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" BorderBrush="Transparent">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox Background="Transparent" HorizontalAlignment="Left" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" Height="30" Margin="31,105,0,0" TextWrapping="Wrap" Text="Number of fractions:" VerticalAlignment="Top" Width="159" FontSize="16" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" BorderBrush="Transparent">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox Background="Transparent" HorizontalAlignment="Left" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" Height="30" Margin="31,140,0,0" TextWrapping="Wrap" Text="Dose to be delivered:" VerticalAlignment="Top" Width="159" FontSize="16" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" BorderBrush="Transparent">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox  x:Name="DoseToBeDelivered" HorizontalAlignment="Left" Margin="221,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="30" BorderBrush="#FF767676" FontSize="16" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Transparent" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" >
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox Background="Transparent" HorizontalAlignment="Left" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" Height="30" Margin="31,261,0,0" TextWrapping="Wrap" Text="α/β" VerticalAlignment="Top" Width="159" FontSize="16" HorizontalContentAlignment="Center" IsReadOnly="True" VerticalContentAlignment="Center" BorderBrush="Transparent">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox Background="#19FFFFFF" x:Name="alpha_beta" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="221,261,0,0" TextChanged="alpha_beta_TextChanged" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="White">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox Background="Transparent" HorizontalAlignment="Left" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" Height="30" Margin="31,296,0,0" TextWrapping="Wrap" Text="BED=D*(1+d/(α/β))" VerticalAlignment="Top" Width="159"  HorizontalContentAlignment="Center" IsReadOnly="True" VerticalContentAlignment="Center" BorderBrush="Transparent">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox Background="Transparent" x:Name="BED" TextAlignment="Center" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="221,296,0,0" TextChanged="DosePerFx_TextChanged" FontSize="16" BorderBrush="#FF767676" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox Background="Transparent" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Height="30" Margin="31,331,0,0" TextWrapping="Wrap" Text="EQD2=D*((d+α/β)/(2+α/β))" VerticalAlignment="Top" Width="159" HorizontalContentAlignment="Center" IsReadOnly="True" VerticalContentAlignment="Center" BorderBrush="Transparent">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox Background="Transparent" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" x:Name="EQD2" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="221,331,0,0" TextChanged="DosePerFx_TextChanged" FontSize="16" BorderBrush="#FF767676" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox Background="Transparent" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Height="30" Margin="381,70,0,0" TextWrapping="Wrap" Text="Linac:" VerticalAlignment="Top" Width="159" FontSize="16" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Transparent">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <ComboBox x:Name="LinacID" HorizontalAlignment="Left" Margin="571,70,0,0" VerticalAlignment="Top" Width="200" Height="30" SelectionChanged="LinacIDChanged" VerticalContentAlignment="Center" SelectedIndex="0" FontSize="16" HorizontalContentAlignment="Center">
+            <ComboBoxItem Content="Halcyon_1132" HorizontalAlignment="Left" Width="198" BorderBrush="#FF767676"/>
+            <ComboBoxItem Content="Halcyon_1133" HorizontalAlignment="Left" Width="198" BorderBrush="#FF767676"/>
+        </ComboBox>
+        <TextBox Background="Transparent" Foreground="#FFDDDDDD" FontWeight="Bold" FontStyle="Normal" FontFamily="Calibri" HorizontalAlignment="Left" Height="30" Margin="381,105,0,0" TextWrapping="Wrap" Text="Structure Set ID:" VerticalAlignment="Top" Width="159" FontSize="16" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="Transparent">
+            <TextBox.Style>
+                <Style/>
+            </TextBox.Style>
+        </TextBox>
+        <ComboBox x:Name="StructureSetID" FontSize="16" HorizontalAlignment="Left" Margin="571,105,0,0" VerticalAlignment="Top" Width="200" Height="30" SelectionChanged="LinacIDChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectedIndex="0">
+        </ComboBox>
+        <ProgressBar x:Name="GreenBar" HorizontalAlignment="Left" Height="38" Margin="20,380,0,0" VerticalAlignment="Top" Width="760" TextOptions.TextHintingMode="Animated" ValueChanged="GreenBar_ValueChanged" UseLayoutRounding="False" Focusable="True" Background="#00E6E6E6" BorderBrush="#99DDDDDD" BorderThickness="2,2,2,2" Foreground="#7F5DA06C">
+            <ProgressBar.Style>
+                <Style/>
+            </ProgressBar.Style>
+        </ProgressBar>
+        <ListView x:Name="GreenBarListBox" IsManipulationEnabled="True" HorizontalAlignment="Left" Height="221" Margin="381,140,0,0" VerticalAlignment="Top" Width="390" ScrollViewer.HorizontalScrollBarVisibility="Auto" TextOptions.TextHintingMode="Animated" IsTabStop="True" IsTextSearchCaseSensitive="True" Foreground="#FF5A1496" SelectedIndex="0" SelectionMode="Single" UseLayoutRounding="True" AutomationProperties.IsOffscreenBehavior="Onscreen" Background="#CCDDDDDD" BorderBrush="#CCDDDDDD" Visibility="Visible" ForceCursor="True">
+            <ListView.Style>
+                <Style/>
+            </ListView.Style>
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="Visibility" Value="Visible" />
+                    <Setter Property="Height" Value="0" />
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="20"/>
+                    <Setter Property="Visibility" Value="Visible"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+    </Grid>
+</UserControl>
